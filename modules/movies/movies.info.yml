@@ -1,0 +1,5 @@
+name: Movies form API
+type: module
+description: Module for consume API Movies, development for Nexa Devs
+package: Custom
+core: 8.x

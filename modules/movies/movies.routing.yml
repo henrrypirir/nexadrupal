@@ -1,0 +1,16 @@
+movies.movie_search:
+  path: '/movies/search'
+  defaults:
+    _controller: 'Drupal\movies\Controller\MovieController::seach'
+    _title: 'Buscar peliculas'
+  requirements:
+    _permission: 'access content'
+
+
+movies.movie_add:
+  path: '/movies/add_favorite'
+  defaults:
+    _controller: 'Drupal\movies\Controller\MovieController::add_favorite'
+    _title: 'Agregar a favoritos'
+  requirements:
+    _permission: 'access content'

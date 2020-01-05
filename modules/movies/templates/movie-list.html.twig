@@ -1,0 +1,33 @@
+<h4>{{ title }}</h4>
+<form method="POST">
+  <div>
+    <label for="title">Titulo de la pelicula</label>
+    <input type="text" id="title" name="title">
+    <input type="submit" value="Buscar">
+  </div>
+</form>
+<div>
+  {% for movie in items %}
+    <div onclick="addFavorite('{{ movie.id }}')">
+      <img src="{{ movie.image }}" alt="{{ movie.title }}">
+      <h3>{{ movie.title }}</h3>
+      <p>Año: {{ movie.year }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+<script type="text/javascript">
+async function addFavorite (strId){
+  let response = await fetch('add_favorite', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({id : strId})
+  });
+  let data = await response.json();
+
+  alert(data.message);
+}
+</script>
